@@ -140,7 +140,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Account.h" />
     <ClInclude Include="ATM.h" />
     <ClInclude Include="BalanceInquiry.h" />
     <ClInclude Include="BankDatabase.h" />
@@ -153,7 +152,6 @@
     <ClInclude Include="Withdrawal.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Account.cpp" />
     <ClCompile Include="ATM.cpp" />
     <ClCompile Include="BalanceInquiry.cpp" />
     <ClCompile Include="BankDatabase.cpp" />

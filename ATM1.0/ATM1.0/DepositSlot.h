@@ -3,7 +3,7 @@
 
 class DepositSlot {
 public:
-
+	bool isEnvelopeReceived();
 }; // end class DepositSlot
 
 #endif // DEPOSIT_SLOT_H

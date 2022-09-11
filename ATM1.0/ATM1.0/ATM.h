@@ -24,10 +24,11 @@ private:
 
 	// associated objects
 	BankDatabase* bankDatabase; // database holding accounts info
+	Transaction* currentTransaction; // transaction being handled 
 
 	// private utility functions
 	void authenticateUser(); // attempts to authenticate user
-	void performTransaction(); // performs transactions
+	void performTransactions(); // performs transactions
 	int displayMainMenu() const; // displays main menu
 
 	// return object of specified Transaction derived class
