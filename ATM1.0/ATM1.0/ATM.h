@@ -12,9 +12,8 @@ class BankDatabase;
 
 class ATM {
 public:
-	ATM(); // constructor
+	ATM(BankDatabase*); // constructor
 	void run(); // start ATM system
-	void connectDatabase(const BankDatabase*); // initialize bankDatabase member
 private:
 	bool userAuthenticated; // whether user	is authenticated 
 	int currentAccountNumber; // current user's account number

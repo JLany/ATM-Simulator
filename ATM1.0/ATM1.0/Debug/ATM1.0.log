@@ -1,0 +1,6 @@
+﻿  BankDatabase.cpp
+C:\Users\Kilany\Desktop\My Projects\CPPHTPExamples\ATMCaseStudy\SimpleATM_OOP\ATM1.0\ATM1.0\BankDatabase.h(5,14): warning C4099: 'sqlite3': type name first seen using 'struct' now seen using 'class'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\sqlite3.h(249): message : see declaration of 'sqlite3'
+  main.cpp
+  Generating Code...
+  ATM1.0.vcxproj -> C:\Users\Kilany\Desktop\My Projects\CPPHTPExamples\ATMCaseStudy\SimpleATM_OOP\ATM1.0\Debug\ATM1.0.exe

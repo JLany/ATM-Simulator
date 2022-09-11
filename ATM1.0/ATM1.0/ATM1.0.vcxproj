@@ -161,6 +161,7 @@
     <ClCompile Include="Deposit.cpp" />
     <ClCompile Include="DepositSlot.cpp" />
     <ClCompile Include="Keypad.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="Withdrawal.cpp" />
