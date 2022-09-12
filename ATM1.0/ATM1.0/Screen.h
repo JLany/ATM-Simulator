@@ -12,6 +12,7 @@ public:
 	void displayMessageLine(const T&, const Types&...) const;
 
 	void hold(int) const;
+	void clear() const;
 }; // end class Screen
 
 #endif // SCREEN_H

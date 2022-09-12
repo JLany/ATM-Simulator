@@ -29,3 +29,7 @@ void Screen::hold(int aDuration) const {
 	chrono::seconds duration(aDuration);
 	this_thread::sleep_for(duration);
 } // end function hold
+
+void Screen::clear() const {
+	system("clear");
+} // end function clear
