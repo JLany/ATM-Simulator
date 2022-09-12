@@ -9,13 +9,18 @@ class BankDatabase;
 class Transaction {
 public:
 	Transaction(int, Screen*, BankDatabase*); // constructor
-	virtual void execute() = 0; // perform transaction
-	int getAccountNumber() const; // for derived classes to access 
-								  // accountNumber data member
+	virtual ~Transaction(); // virual destructor with empty body
+
+	virtual void execute() = 0; // perform transaction, pure virtual
+
+	// for derived classes to access base class members
+	int getAccountNumber() const;
+	Screen* getScreen() const;
+	BankDatabase* getBankDatabase() const;
 private:
-	int accountNumber; // account to which apply transaction
 	Screen* screen;
 	BankDatabase* bankDatabase;
+	int accountNumber; // account to which apply transaction
 }; // end class Transaction
 
 #endif // TRANSACTION_H
