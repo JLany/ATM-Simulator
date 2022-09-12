@@ -24,7 +24,6 @@ private:
 
 	// associated objects
 	BankDatabase* bankDatabase; // database holding accounts info
-	Transaction* currentTransaction; // transaction being handled 
 
 	// private utility functions
 	void authenticateUser(); // attempts to authenticate user

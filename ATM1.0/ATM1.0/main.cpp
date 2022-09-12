@@ -7,6 +7,10 @@
 using namespace std;
 
 int main() {
-
+	cout << "Hello";
+	int x;
+	cin >> x;
+	system("clear");
+	cout << "NICE!";
 }
 

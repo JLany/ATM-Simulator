@@ -8,7 +8,7 @@ class BankDatabase;
 // abstract class Transaction
 class Transaction {
 public:
-	Transaction(int); // constructor
+	Transaction(int, Screen*, BankDatabase*); // constructor
 	virtual void execute() = 0; // perform transaction
 	int getAccountNumber() const; // for derived classes to access 
 								  // accountNumber data member

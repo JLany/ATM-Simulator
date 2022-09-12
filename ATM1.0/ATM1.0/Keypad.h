@@ -3,7 +3,7 @@
 
 class Keypad {
 public:
-	int getInput();
+	int getInput() const;
 }; // end class Keypad
 
 #endif // KEYPAD_H

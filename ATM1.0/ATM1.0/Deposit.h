@@ -4,12 +4,14 @@
 #include "Transaction.h" // Transaction class definition
 
 // forward declarations
+class Screen;
 class Keypad;
 class DepositSlot;
+class BankDatabase;
 
-class Deposit :
-	public Transaction {
+class Deposit : public Transaction {
 public:
+	Deposit(int, Screen*, BankDatabase*, Keypad*, DepositSlot*);
 	virtual void execute() override;
 private:
 	// pointers to associated objects

@@ -4,11 +4,14 @@
 #include "Transaction.h" // class Transaction definition
 
 // forward declarations
+class Screen;
 class Keypad;
 class CashDispenser;
+class BankDatabase;
 
 class Withdrawal : public Transaction {
 public:
+	Withdrawal(int, Screen*, BankDatabase*, Keypad*, CashDispenser*);
 	// operations
 	virtual void execute() override; // perform the transaction
 

@@ -5,7 +5,8 @@
 
 class Screen {
 public:
-	void displayMessage(const std::string&);
+	void displayMessage(const std::string&) const;
+	void displayMessageLine(const std::string&) const;
 }; // end class Screen
 
 #endif // SCREEN_H
