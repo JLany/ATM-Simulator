@@ -175,6 +175,8 @@ void BankDatabase::credit(int userAccountNumber, double amount) {
 // that it's less than or equal to account's available balance
 // before it's passed as an argument.
 // undefined behavior otherwise
+// 
+// MODIFIED: handled
 void BankDatabase::debit(int userAccountNumber, double amount) {
 	sqlite3_stmt* sqliteStatement = NULL;
 	int rc;
@@ -194,6 +196,8 @@ void BankDatabase::debit(int userAccountNumber, double amount) {
 
 	double newAvailableBalance = getAvailableBalance(userAccountNumber) - amount;
 	double newTotalBalance = getTotalBalance(userAccountNumber) - amount;
+	if (newAvailableBalance < 0)
+		throw invalid_argument("balance cannot be less than 0");
 
 	rc = sqlite3_bind_double(sqliteStatement, 1, newAvailableBalance);
 	rc = sqlite3_bind_double(sqliteStatement, 2, newTotalBalance);
