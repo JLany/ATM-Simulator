@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <chrono>
+#include <thread>
 #include "Screen.h"
 using namespace std;
 
@@ -22,3 +24,8 @@ void Screen::displayMessageLine(const T& arg, const Types&... args) const {
 
 	displayMessageLine(args...);
 }
+
+void Screen::hold(int aDuration) const {
+	chrono::seconds duration(aDuration);
+	this_thread::sleep_for(duration);
+} // end function hold
