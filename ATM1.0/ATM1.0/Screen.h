@@ -5,8 +5,11 @@
 
 class Screen {
 public:
-	void displayMessage(const std::string&) const;
-	void displayMessageLine(const std::string&) const;
+	template <class T, class... Types>
+	void displayMessage(const T&, Types&...) const;
+
+	template <class T, class... Types>
+	void displayMessageLine(const T&, Types&...) const;
 }; // end class Screen
 
 #endif // SCREEN_H
