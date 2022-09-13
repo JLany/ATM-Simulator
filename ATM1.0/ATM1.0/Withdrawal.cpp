@@ -40,6 +40,8 @@ void Withdrawal::execute() {
 		if (amount > availableBalance) {
 			screen->displayMessageLine("\nInsufficient available balance "
 				"in your account.\nPlease try again.");
+			screen->hold(3);
+
 			continue;
 		}
 
@@ -48,6 +50,8 @@ void Withdrawal::execute() {
 		if (!sufficientCashAvailable) {
 			screen->displayMessageLine("\nInsufficient cash in the ATM."
 				"\nPlease try again with a smaller amount.");
+			screen->hold(3);
+
 			continue;
 		}
 
@@ -56,6 +60,7 @@ void Withdrawal::execute() {
 		cashDispenser->dispenseCash(static_cast<int>(amount));
 		screen->displayMessageLine("\nPlease take your cash.");
 		cashDispensed = true;
+		screen->hold(3);
 	}
 }
 
@@ -100,7 +105,7 @@ int Withdrawal::displayWithdrawalMenu() const {
 void Withdrawal::cancelTransactionMessage() const {
 	Screen* screen = getScreen(); // get local access to private member
 
-	screen->displayMessageLine("\nAborting transaction.");
+	screen->displayMessage("\nAborting transaction.");
 	screen->hold(1);
 	screen->displayMessage(".");
 	screen->hold(1);

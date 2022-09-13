@@ -23,7 +23,7 @@ void Deposit::execute() {
 	amount = promptForDepositAmount();
 
 	if (amount == CANCELED) {
-		screen->displayMessageLine("\nAborting transaction.");
+		screen->displayMessage("\nAborting transaction.");
 		screen->hold(1);
 		screen->displayMessage(".");
 		screen->hold(1);
@@ -41,6 +41,7 @@ void Deposit::execute() {
 			"\nNOTE: The money deposited will not not be available until we"
 			"\nverify the amount of any enclosed cash, and any enclosed "
 			"checks clear.");
+		screen->hold(3);
 
 		bankDatabase->credit(getAccountNumber(), amount);
 	}

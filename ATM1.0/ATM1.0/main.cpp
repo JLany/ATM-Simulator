@@ -8,5 +8,12 @@ using namespace std;
 
 int main() {
 	BankDatabase database;
+
+	ATM atm;
+
+	atm.connectDatabase(&database);
+	atm.run();
+
+	return 0;
 }
 

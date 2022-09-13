@@ -21,6 +21,7 @@ void ATM::run() {
 	while (true) {
 		// loop until user is authenticated
 		while (!userAuthenticated) {
+			screen.clear();
 			screen.displayMessageLine("Welcome!");
 			authenticateUser();
 		} // end inner while
@@ -47,9 +48,11 @@ void ATM::authenticateUser() {
 
 	if (userAuthenticated)
 		currentAccountNumber = accountNumber;
-	else
+	else {
 		screen.displayMessageLine(
-			"Invalid account number of PIN. Please try again");
+			"\nInvalid account number or PIN. Please try again");
+		screen.hold(3);
+	}
 }// end function authenticateUser
 
 void ATM::performTransactions() {
@@ -65,8 +68,10 @@ void ATM::performTransactions() {
 		case WITHDRAWAL:
 		case DEPOSIT:
 			currentTransaction = createTransaction(mainMenuChoice);
+
 			// start transaction
 			currentTransaction->execute();
+
 			// end transaction
 			delete currentTransaction;
 			currentTransaction = nullptr;
@@ -76,6 +81,7 @@ void ATM::performTransactions() {
 			screen.displayMessageLine("\nEnding session...");
 			screen.displayMessageLine(
 				"\nThank you for banking with us! Goodbye!");
+			screen.hold(3);
 			userExited = true;
 			break;
 		default: // user did not enter a an integer from 1 - 4
@@ -93,7 +99,7 @@ int ATM::displayMainMenu() const {
 	screen.displayMessageLine("		2 - Withdraw cash");
 	screen.displayMessageLine("		3 - Deposit funds");
 	screen.displayMessageLine("		4 - Exit");
-	screen.displayMessage("Enter a choice");
+	screen.displayMessage("Enter a choice: ");
 	return keypad.getInput();
 } // end function displayMainMenu
 

@@ -21,4 +21,5 @@ void BalanceInquiry::execute() {
 	screen->displayMessageLine("\nBalance Information:");
 	screen->displayMessageLine("	- Available Balance: $", availableBalance);
 	screen->displayMessageLine("	- Total Balance: $", totalBalance);
+	screen->hold(10);
 }
