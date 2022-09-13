@@ -3,15 +3,21 @@
 #include "BalanceInquiry.h"
 #include "Deposit.h"
 #include "BankDatabase.h"
+#include <stdexcept>
 
 enum MenuChoice { BALANCE_INQUIRY = 1, WITHDRAWAL, DEPOSIT, EXIT };
 
-ATM::ATM(BankDatabase* DB)
-	: bankDatabase{ DB },
-	userAuthenticated{ false },
-	currentAccountNumber{ 0 } { /* empty body */ } // end ATM constructor
+ATM::ATM()
+	: userAuthenticated{ false },
+	currentAccountNumber{ 0 },
+	databaseConnected{ false },
+	bankDatabase{ nullptr } { /* empty body */ } // end ATM constructor
 
 void ATM::run() {
+	if (!databaseConnected)
+		throw std::invalid_argument{
+		"cannot run ATM without connecting to database." };
+
 	while (true) {
 		// loop until user is authenticated
 		while (!userAuthenticated) {
@@ -113,3 +119,8 @@ Transaction* ATM::createTransaction(int type) {
 
 	return transaction;
 } // end function createTransaction
+
+void ATM::connectDatabase(BankDatabase* database) {
+	bankDatabase = database;
+	databaseConnected = true;
+}

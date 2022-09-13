@@ -12,11 +12,14 @@ class BankDatabase;
 
 class ATM {
 public:
-	ATM(BankDatabase*); // constructor
+	ATM(); // constructor
 	void run(); // start ATM system
+	void connectDatabase(BankDatabase*);
 private:
 	bool userAuthenticated; // whether user	is authenticated 
 	int currentAccountNumber; // current user's account number
+	bool databaseConnected;
+
 	Screen screen; // ATM's screen
 	Keypad keypad; // ATM's keypad
 	CashDispenser cashDispenser; // ATM's cash dispenser
