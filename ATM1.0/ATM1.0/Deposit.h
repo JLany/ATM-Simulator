@@ -14,6 +14,7 @@ public:
 	Deposit(int, Screen*, BankDatabase*, Keypad*, DepositSlot*);
 	virtual void execute() override;
 private:
+	double amount;
 	// pointers to associated objects
 	Keypad* keypad; // gain access to a Keypad object | ATM's keypad
 	DepositSlot* depositSlot; // gain access to a DepositSlot object | ATM's deposit slot

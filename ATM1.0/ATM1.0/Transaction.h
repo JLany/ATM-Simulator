@@ -9,7 +9,11 @@ class BankDatabase;
 class Transaction {
 public:
 	Transaction(int, Screen*, BankDatabase*); // constructor
-	virtual ~Transaction(); // virual destructor with empty body
+	virtual ~Transaction() = default; // virtual destructor set to default
+
+	// NOTE the difference here between a default constructor, and 
+	// a constructor set to default. default means it takes no arguments
+	// while "set to default" means a compiler generated constructor
 
 	virtual void execute() = 0; // perform transaction, pure virtual
 

@@ -19,7 +19,7 @@ void Deposit::execute() {
 	Screen* screen = getScreen();
 	BankDatabase* bankDatabase = getBankDatabase();
 
-	double amount = promptForDepositAmount();
+	amount = promptForDepositAmount();
 
 	if (amount == CANCELED) {
 		screen->displayMessageLine("\nAborting transaction.");

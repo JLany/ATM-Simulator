@@ -9,12 +9,7 @@ enum MenuChoice { BALANCE_INQUIRY = 1, WITHDRAWAL, DEPOSIT, EXIT };
 ATM::ATM(BankDatabase* DB)
 	: bankDatabase{ DB },
 	userAuthenticated{ false },
-	currentAccountNumber{ 0 }
-{ /* empty body */ }
-
-ATM::ATM() {
-	delete bankDatabase;
-}
+	currentAccountNumber{ 0 } { /* empty body */ } // end ATM constructor
 
 void ATM::run() {
 	while (true) {
@@ -30,7 +25,7 @@ void ATM::run() {
 		userAuthenticated = false;
 		currentAccountNumber = 0;
 
-		system("clear");
+		screen.clear();
 	} // end while
 } // end function run
 
@@ -81,12 +76,12 @@ void ATM::performTransactions() {
 			screen.displayMessageLine(
 				"\nYou did not enter a valid selection. Try again.");
 			break;
-		}
-	}
-}
+		} // end switch
+	} // end while
+} // end function perform transaction
 
 int ATM::displayMainMenu() const {
-	system("clear");
+	screen.clear();
 	screen.displayMessageLine("Main Menu:");
 	screen.displayMessageLine("		1 - View my balance");
 	screen.displayMessageLine("		2 - Withdraw cash");
@@ -94,7 +89,7 @@ int ATM::displayMainMenu() const {
 	screen.displayMessageLine("		4 - Exit");
 	screen.displayMessage("Enter a choice");
 	return keypad.getInput();
-}
+} // end function displayMainMenu
 
 Transaction* ATM::createTransaction(int type) {
 	Transaction* transaction;
@@ -114,7 +109,7 @@ Transaction* ATM::createTransaction(int type) {
 			new Deposit(currentAccountNumber, &screen,
 				bankDatabase, &keypad, &depositSlot);
 		break;
-	}
+	} // end switch
 
 	return transaction;
-}
+} // end function createTransaction
