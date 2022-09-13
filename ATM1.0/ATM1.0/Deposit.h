@@ -15,8 +15,11 @@ public:
 	virtual void execute() override;
 private:
 	// pointers to associated objects
-	Keypad* keypad; // gain access to a Keypad object
-	DepositSlot* depositSlot; // gain access to a DepositSlot object
+	Keypad* keypad; // gain access to a Keypad object | ATM's keypad
+	DepositSlot* depositSlot; // gain access to a DepositSlot object | ATM's deposit slot
+
+	// utility functions
+	double promptForDepositAmount();
 };
 
 #endif // DEPOSIT_H
