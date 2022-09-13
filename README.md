@@ -1,4 +1,4 @@
 # Simple-ATM
 ## First Version Release!
 ### Potential Feature:
-    Transfer Money to Another Account (a Transaction)
+    Transaction: Transfer Money to Another Account
