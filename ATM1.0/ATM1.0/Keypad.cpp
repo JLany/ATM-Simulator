@@ -1,13 +1,12 @@
 #include <iostream>
 #include <string>
-#include <regex>
-#include <conio.h>
+#include <cctype> // isdigit function definition
+#include <conio.h> // _getch function definition 
 #include "Keypad.h"
 using namespace std;
 
 int Keypad::getInput() const {
 	string input;
-	regex digitEx("[0-9]+");
 
 	int nextChr = 0;
 	while (nextChr != 13) { // ascii of newline
@@ -21,11 +20,9 @@ int Keypad::getInput() const {
 			continue;
 		} // end if
 
-		string temp = ""; // empty string
-		temp += static_cast<char>(nextChr);
-
-		if (regex_match(temp, digitEx)) {
-			input.append(temp);
+		if (isdigit(nextChr)) {
+			char temp = static_cast<char>(nextChr);
+			input.push_back(temp);
 			cout << temp;
 		} // end if
 	} // end while
