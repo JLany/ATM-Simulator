@@ -41,7 +41,7 @@ void ATM::authenticateUser() {
 	int accountNumber = keypad.getInput();
 
 	screen.displayMessage("\nEnter your PIN: ");
-	int pin = keypad.getInput();
+	int pin = keypad.getHiddenInput();
 
 	userAuthenticated = bankDatabase->
 		authenticateUser(accountNumber, pin);
