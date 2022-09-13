@@ -7,7 +7,7 @@ using namespace std;
 
 #define DEBUG 0 // for debugging and testing the class
 
-#define BANK_DATABASE_PATH "testDB.db" // add path for database here here
+#define BANK_DATABASE_PATH "bank_database.db" // add path for database here here
 
 BankDatabase::BankDatabase() : filePath{ BANK_DATABASE_PATH } {
 	initializeConnection();
@@ -17,7 +17,7 @@ BankDatabase::~BankDatabase() {
 	int rc = sqlite3_close_v2(Database);
 
 	if (rc != SQLITE_OK)
-		throw invalid_argument("closing connection failed");
+		cerr << "\nclosing connection failed\n";
 }
 
 bool BankDatabase::authenticateUser(int userAccountNumber, int userPIN) {
@@ -51,7 +51,7 @@ bool BankDatabase::authenticateUser(int userAccountNumber, int userPIN) {
 			userAuthenticated = true;
 		else if (columns > 4)
 			throw invalid_argument("more than one account matches in database");
-}
+	}
 
 	if (rc == SQLITE_DONE)
 		sqlite3_reset(sqliteStatement);
