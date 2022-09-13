@@ -21,6 +21,10 @@ private:
 	// pointers to associated objects
 	Keypad* keypad;
 	CashDispenser* cashDispenser;
+
+	// utitlity functions
+	int displayWithdrawalMenu() const;
+	void cancelTransactionMessage() const;
 }; // end class Withdrawal
 
 
