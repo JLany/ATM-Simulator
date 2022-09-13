@@ -1,15 +1,5 @@
 ﻿  ATM.cpp
-  BalanceInquiry.cpp
   BankDatabase.cpp
-C:\Users\Kilany\Desktop\My Projects\CPPHTPExamples\ATMCaseStudy\SimpleATM_OOP\ATM1.0\ATM1.0\BankDatabase.h(5,14): warning C4099: 'sqlite3': type name first seen using 'struct' now seen using 'class'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\sqlite3.h(249): message : see declaration of 'sqlite3'
-  Deposit.cpp
-  DepositSlot.cpp
-  Transaction.cpp
   Withdrawal.cpp
-  main.cpp
   Generating Code...
-ATM.obj : error LNK2019: unresolved external symbol "public: void __thiscall Screen::displayMessage(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?displayMessage@Screen@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "public: void __thiscall ATM::run(void)" (?run@ATM@@QAEXXZ)
-ATM.obj : error LNK2019: unresolved external symbol "public: int __thiscall Keypad::getInput(void)" (?getInput@Keypad@@QAEHXZ) referenced in function "public: void __thiscall ATM::run(void)" (?run@ATM@@QAEXXZ)
-ATM.obj : error LNK2019: unresolved external symbol "private: void __thiscall ATM::performTransactions(void)" (?performTransactions@ATM@@AAEXXZ) referenced in function "public: void __thiscall ATM::run(void)" (?run@ATM@@QAEXXZ)
-C:\Users\Kilany\Desktop\My Projects\CPPHTPExamples\ATMCaseStudy\SimpleATM_OOP\ATM1.0\Debug\ATM1.0.exe : fatal error LNK1120: 3 unresolved externals
+  ATM1.0.vcxproj -> C:\Users\Kilany\Desktop\My Projects\CPPHTPExamples\ATMCaseStudy\SimpleATM_OOP\ATM1.0\Debug\ATM1.0.exe

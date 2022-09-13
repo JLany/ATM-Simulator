@@ -98,7 +98,7 @@ int ATM::displayMainMenu() const {
 } // end function displayMainMenu
 
 Transaction* ATM::createTransaction(int type) {
-	Transaction* transaction;
+	Transaction* transaction = nullptr;
 
 	switch (type) {
 	case BALANCE_INQUIRY:
@@ -115,6 +115,9 @@ Transaction* ATM::createTransaction(int type) {
 			new Deposit(currentAccountNumber, &screen,
 				bankDatabase, &keypad, &depositSlot);
 		break;
+	default:
+		throw std::invalid_argument(
+			"transaction was not initialized correctly");
 	} // end switch
 
 	return transaction;

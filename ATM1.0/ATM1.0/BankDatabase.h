@@ -2,7 +2,7 @@
 #define BANK_DATABASE_H
 
 // forward declarations
-class sqlite3;
+struct sqlite3;
 
 class BankDatabase {
 public:

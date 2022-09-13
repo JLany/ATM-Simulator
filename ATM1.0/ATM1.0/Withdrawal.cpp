@@ -53,7 +53,7 @@ void Withdrawal::execute() {
 
 		bankDatabase->debit(getAccountNumber(), amount);
 
-		cashDispenser->dispenseCash(amount);
+		cashDispenser->dispenseCash(static_cast<int>(amount));
 		screen->displayMessageLine("\nPlease take your cash.");
 		cashDispensed = true;
 	}

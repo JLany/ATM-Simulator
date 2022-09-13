@@ -10,6 +10,7 @@ static const int CANCELED = 0;
 Deposit::Deposit(int userAccountNumber, Screen* aScreen,
 	BankDatabase* database, Keypad* aKeypad, DepositSlot* aDepositSlot)
 	: Transaction(userAccountNumber, aScreen, database),
+	amount{ 0.0 },
 	keypad{ aKeypad },
 	depositSlot{ aDepositSlot } { /* empty body */ }
 // end Deposit constructor
