@@ -6,40 +6,31 @@
 using namespace std;
 
 int Keypad::getInput() const {
-	string input;
-
-	int nextChr = 0;
-	while (nextChr != 13) { // ascii of newline
-		nextChr = _getch();
-
-		if (nextChr == 8) { // ascii of backspace
-			if (input.length() > 0) {
-				input.pop_back();
-				cout << "\b \b"; // erase one char from console | \b = cursor one step back
-			} // end if
-			continue;
-		} // end if
-
-		if (isdigit(nextChr)) {
-			char temp = static_cast<char>(nextChr);
-			input.push_back(temp);
-			cout << temp;
-		} // end if
-	} // end while
-
-	return (input.empty() ? 0 : stoi(input));
+	return input(normalInput);
 } // end function getInput
 
 int Keypad::getHiddenInput() const {
-	string input;
+	return input(hiddenInput);
+} // end function getHiddenInput
+
+bool Keypad::normalInput() const {
+	return false;
+}
+
+bool Keypad::hiddenInput() const {
+	return true;
+}
+
+int Keypad::input(bool (Keypad::*isHiddenInput)() const) const {
+	string userInput;
 
 	int nextChr = 0;
 	while (nextChr != 13) { // ascii of newline
 		nextChr = _getch();
 
 		if (nextChr == 8) { // ascii of backspace
-			if (input.length() > 0) {
-				input.pop_back();
+			if (userInput.length() > 0) {
+				userInput.pop_back();
 				cout << "\b \b"; // erase one char from console | \b = cursor one step back
 			} // end if
 			continue;
@@ -47,10 +38,16 @@ int Keypad::getHiddenInput() const {
 
 		if (isdigit(nextChr)) {
 			char temp = static_cast<char>(nextChr);
-			input.push_back(temp);
-			cout << "*";
+			
+			userInput.push_back(temp);
+
+			// unary * operator cannot be used with pointer to member function
+			// instead, we use ->* or .* operator to dereference a pointer to 
+			// member function
+			cout << ((this->*isHiddenInput)() ? '*' : temp);
+			
 		} // end if
 	} // end while
 
-	return (input.empty() ? 0 : stoi(input));
-} // end function getHiddenInput
+	return (userInput.empty() ? 0 : stoi(userInput));
+}
